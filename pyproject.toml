@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "turtle-translations"
+version = "0.1.0"
+description = "Translations of Python turtle docstrings"
+readme = "README.md"
+requires-python = ">=3"
+license = "PSF-2.0"
+license-files = ["LICENSE", "NOTICE"]
+dependencies = []
+
+[tool.hatch.build.targets.sdist]
+include = ["/translations", "/scripts", "/hatch_build.py", "/tests", "/README.md", "/LICENSE", "/NOTICE"]
+
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
+
+[tool.hatch.build.targets.wheel.hooks.custom]

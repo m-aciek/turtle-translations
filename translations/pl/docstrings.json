@@ -1,0 +1,288 @@
+{
+  "Turtle": {
+    "back": {
+      "string": "Przesuwa żółwia do tyłu o podaną odległość.\n\ndistance to liczba określająca odległość w jednostkach żółwia. Ruch odbywa się\nprzeciwnie do kierunku, w którym żółw jest zwrócony, bez zmiany tego kierunku.\nOpuszczone pióro rysuje linię.\n\nPrzykłady:\n>>> turtle.back(50)\n"
+    },
+    "begin_fill": {
+      "string": "Rozpoczyna tworzenie kształtu do wypełnienia.\n\nWywołaj bezpośrednio przed rysowaniem kształtu, a po zakończeniu rysowania\nwywołaj end_fill(). Można też użyć menedżera kontekstu turtle.fill().\n\nPrzykłady:\n>>> turtle.begin_fill()\n>>> turtle.circle(50)\n>>> turtle.end_fill()\n"
+    },
+    "begin_poly": {
+      "string": "Rozpoczyna zapisywanie wierzchołków wielokąta.\n\nBieżące położenie żółwia staje się pierwszym wierzchołkiem. Zapis kończy\nend_poly().\n\nPrzykłady:\n>>> turtle.begin_poly()\n"
+    },
+    "circle": {
+      "string": "Rysuje okrąg lub łuk o podanym promieniu.\n\nradius to liczba. Środek okręgu leży o radius jednostek na lewo od żółwia.\nDodatni promień oznacza rysowanie przeciwnie do ruchu wskazówek zegara, ujemny\n— zgodnie z nim.\n\nextent określa kąt łuku w aktualnych jednostkach kąta; pominięcie go powoduje\nnarysowanie całego okręgu. Kierunek żółwia zmienia się podczas rysowania łuku.\n\nOkrąg jest przybliżany wielokątem foremnym. steps określa liczbę jego boków;\ndomyślnie jest obliczana automatycznie. Można użyć steps do rysowania\nwielokątów foremnych.\n\nPrzykłady:\n>>> turtle.circle(50)\n>>> turtle.circle(80, 180)\n>>> turtle.circle(40, steps=6)\n"
+    },
+    "clear": {
+      "string": "Usuwa rysunki tego żółwia z ekranu.\n\nNie zmienia położenia ani stanu żółwia i nie wpływa na rysunki innych żółwi.\n\nPrzykłady:\n>>> turtle.clear()\n"
+    },
+    "clearstamp": {
+      "string": "Usuwa stempel o podanym identyfikatorze.\n\nstampid to identyfikator zwrócony przez wcześniejsze wywołanie stamp().\n\nPrzykłady:\n>>> stamp_id = turtle.stamp()\n>>> turtle.clearstamp(stamp_id)\n"
+    },
+    "clearstamps": {
+      "string": "Usuwa wszystkie lub wybrane stemple tego żółwia.\n\nBez argumentu albo dla n=None usuwa wszystkie stemple. Dodatnie n usuwa\npierwsze n stempli, a ujemne n usuwa ostatnie abs(n) stempli.\n\nPrzykłady:\n>>> turtle.clearstamps()\n>>> turtle.clearstamps(-2)\n"
+    },
+    "clone": {
+      "string": "Tworzy i zwraca kopię żółwia.\n\nNowy żółw ma takie samo położenie, kierunek i właściwości jak oryginał.\n\nPrzykłady:\n>>> other = turtle.clone()\n"
+    },
+    "color": {
+      "string": "Zwraca lub ustawia kolor pióra i wypełnienia.\n\nBez argumentów zwraca parę (pencolor, fillcolor). Jeden kolor albo trzy\nskładowe RGB ustawiają oba kolory. Dwa argumenty ustawiają osobno kolor pióra i\nwypełnienia. Akceptowane są nazwy kolorów, zapisy szesnastkowe i krotki RGB.\n\nPrzykłady:\n>>> turtle.color(\"black\", \"red\")\n"
+    },
+    "degrees": {
+      "string": "Ustawia jednostkę kąta przez podanie liczby jednostek pełnego obrotu.\n\nfullcircle to liczba dodatnia, domyślnie 360. Wywołanie degrees() przywraca\npomiar w stopniach.\n\nPrzykłady:\n>>> turtle.degrees()\n>>> turtle.degrees(400)\n"
+    },
+    "distance": {
+      "string": "Zwraca odległość żółwia od podanego punktu lub innego żółwia.\n\nPodaj dwie liczby x i y, parę współrzędnych, Vec2D albo obiekt innego żółwia.\nOdległość jest wyrażona w jednostkach żółwia.\n\nPrzykłady:\n>>> distance = turtle.distance(0, 0)\n"
+    },
+    "dot": {
+      "string": "Rysuje kropkę w bieżącym położeniu żółwia.\n\nsize to średnica kropki, nie mniejsza od 1. Domyślnie wynosi max(pensize + 4, 2\n* pensize). color to nazwa koloru lub składowe RGB; domyślnie używany jest\nkolor pióra.\n\nPrzykłady:\n>>> turtle.dot(20, \"red\")\n"
+    },
+    "end_fill": {
+      "string": "Wypełnia kształt narysowany od ostatniego wywołania begin_fill().\n\nUżywa bieżącego koloru wypełnienia. Bez wcześniejszego begin_fill() niczego nie\nzmienia. Wypełnienie obszarów samoprzecinającego się wielokąta może zależeć od\nsystemu graficznego.\n\nPrzykłady:\n>>> turtle.begin_fill()\n>>> turtle.circle(50)\n>>> turtle.end_fill()\n"
+    },
+    "end_poly": {
+      "string": "Kończy zapisywanie wierzchołków wielokąta.\n\nBieżące położenie żółwia staje się ostatnim wierzchołkiem, połączonym z\npierwszym. Zapisany wielokąt można pobrać przez get_poly().\n\nPrzykłady:\n>>> turtle.end_poly()\n"
+    },
+    "fill": {
+      "string": "Wypełnia kształt narysowany wewnątrz bloku with.\n\nMenedżer kontekstu wywołuje begin_fill() przy wejściu do bloku i end_fill()\nprzy wyjściu z niego.\n\nPrzykłady:\n>>> with turtle.fill():\n...     turtle.circle(50)\n"
+    },
+    "fillcolor": {
+      "string": "Zwraca lub ustawia kolor wypełnienia.\n\nBez argumentów zwraca bieżący kolor. Podaj nazwę koloru, zapis szesnastkowy,\nkrotkę (r, g, b) albo trzy składowe r, g, b. Zakres składowych zależy od\ncolormode(): 0..1 lub 0..255.\n\nKolor wypełnienia określa również kolor wnętrza wielokątnego kształtu żółwia.\n\nPrzykłady:\n>>> turtle.fillcolor(\"yellow\")\n"
+    },
+    "filling": {
+      "string": "Zwraca True, jeśli trwa tworzenie kształtu do wypełnienia.\n\nW przeciwnym razie zwraca False. Wypełnianie rozpoczyna begin_fill(), a kończy\nend_fill().\n\nPrzykłady:\n>>> active = turtle.filling()\n"
+    },
+    "forward": {
+      "string": "Przesuwa żółwia do przodu o podaną odległość.\n\ndistance to liczba określająca odległość w jednostkach żółwia. Żółw porusza się\nw kierunku, w którym jest zwrócony; jeśli pióro jest opuszczone, rysuje linię.\n\nPrzykłady:\n>>> turtle.forward(100)\n"
+    },
+    "get_poly": {
+      "string": "Zwraca ostatnio zapisany wielokąt.\n\nWynikiem jest krotka par współrzędnych lub None, jeśli nie rozpoczęto\nzapisywania wielokąta.\n\nPrzykłady:\n>>> polygon = turtle.get_poly()\n"
+    },
+    "get_shapepoly": {
+      "string": "Zwraca bieżący wielokątny kształt żółwia jako krotkę par współrzędnych.\n\nWynik uwzględnia przekształcenia kształtu. Można użyć go do zdefiniowania\nnowego kształtu lub elementu kształtu złożonego. Dla kształtu innego niż\nwielokąt zwraca None.\n\nPrzykłady:\n>>> polygon = turtle.get_shapepoly()\n"
+    },
+    "getscreen": {
+      "string": "Zwraca obiekt TurtleScreen, na którym żółw rysuje.\n\nNa zwróconym obiekcie można wywoływać metody ekranu.\n\nPrzykłady:\n>>> screen = turtle.getscreen()\n"
+    },
+    "getturtle": {
+      "string": "Zwraca obiekt żółwia.\n\nPozwala uzyskać dostęp do obiektu RawTurtle lub Turtle używanego przez\nwywoływane funkcje.\n\nPrzykłady:\n>>> pen = turtle.getturtle()\n"
+    },
+    "goto": {
+      "string": "Przesuwa żółwia do podanej pozycji bezwzględnej.\n\nPodaj dwie liczby x i y albo jedną parę współrzędnych (lub obiekt Vec2D). Jeśli\npióro jest opuszczone, żółw rysuje linię. Kierunek żółwia nie zmienia się.\n\nPrzykłady:\n>>> turtle.goto(100, 50)\n>>> turtle.goto((0, 0))\n"
+    },
+    "heading": {
+      "string": "Zwraca bieżący kierunek żółwia.\n\nWynik jest wyrażony w aktualnych jednostkach kąta i zależy od trybu\nstandard/logo.\n\nPrzykłady:\n>>> angle = turtle.heading()\n"
+    },
+    "hideturtle": {
+      "string": "Ukrywa żółwia.\n\nUkrycie żółwia może przyspieszyć rysowanie złożonych obrazów.\n\nPrzykłady:\n>>> turtle.hideturtle()\n"
+    },
+    "home": {
+      "string": "Przesuwa żółwia do punktu (0, 0) i przywraca kierunek początkowy.\n\nKierunek początkowy zależy od trybu: w standard jest to wschód, a w logo\npółnoc. Opuszczone pióro rysuje linię podczas powrotu.\n\nPrzykłady:\n>>> turtle.home()\n"
+    },
+    "isdown": {
+      "string": "Zwraca True, jeśli pióro jest opuszczone, albo False, jeśli jest podniesione.\n\nPrzykłady:\n>>> turtle.penup()\n>>> turtle.isdown()\nFalse\n"
+    },
+    "isvisible": {
+      "string": "Zwraca True, jeśli żółw jest widoczny, albo False, jeśli jest ukryty.\n\nPrzykłady:\n>>> turtle.showturtle()\n>>> turtle.isvisible()\nTrue\n"
+    },
+    "left": {
+      "string": "Obraca żółwia w lewo o podany kąt.\n\nangle to liczba wyrażona w aktualnych jednostkach kąta, domyślnie w stopniach.\nJednostki można zmienić za pomocą degrees() lub radians().\n\nPrzykłady:\n>>> turtle.left(90)\n"
+    },
+    "onclick": {
+      "string": "Przypisuje funkcję do zdarzenia kliknięcia żółwia.\n\nfun to funkcja przyjmująca dwie współrzędne punktu na płótnie. Podanie None\nusuwa powiązanie. btn to numer przycisku myszy, domyślnie 1 (lewy). add=True\ndodaje kolejne powiązanie; w przeciwnym razie zastępuje poprzednie.\n\nPrzykłady:\n>>> turtle.onclick(turtle.goto)\n"
+    },
+    "ondrag": {
+      "string": "Przypisuje funkcję do zdarzenia przeciągania żółwia myszą.\n\nfun to funkcja przyjmująca dwie współrzędne punktu na płótnie. Podanie None\nusuwa powiązanie. btn to numer przycisku myszy, domyślnie 1 (lewy). add=True\ndodaje kolejne powiązanie; w przeciwnym razie zastępuje poprzednie.\n\nPrzeciąganie jest poprzedzone kliknięciem żółwia.\n\nPrzykłady:\n>>> turtle.ondrag(turtle.goto)\n"
+    },
+    "onrelease": {
+      "string": "Przypisuje funkcję do zdarzenia zwolnienia przycisku myszy na żółwiu.\n\nfun to funkcja przyjmująca dwie współrzędne punktu na płótnie. Podanie None\nusuwa powiązanie. btn to numer przycisku myszy, domyślnie 1 (lewy). add=True\ndodaje kolejne powiązanie; w przeciwnym razie zastępuje poprzednie.\n\nPrzykłady:\n>>> turtle.onrelease(turtle.goto)\n"
+    },
+    "pen": {
+      "string": "Zwraca lub ustawia właściwości pióra za pomocą słownika.\n\nBez argumentów zwraca słownik ustawień. Aby je zmienić, podaj słownik pen,\nargumenty nazwane albo oba. Argumenty nazwane mają pierwszeństwo przed\nwartościami ze słownika.\n\nKlucze ustawień: shown, pendown, pencolor, fillcolor, pensize, speed,\nresizemode, stretchfactor, shearfactor, outline i tilt. Zapisany słownik można\npóźniej przekazać do pen(), aby odtworzyć stan.\n\nPrzykłady:\n>>> state = turtle.pen()\n>>> turtle.pen(pencolor=\"red\", pensize=3)\n>>> turtle.pen(state)\n"
+    },
+    "pencolor": {
+      "string": "Zwraca lub ustawia kolor pióra.\n\nBez argumentów zwraca bieżący kolor. Podaj nazwę koloru, zapis szesnastkowy\n(np. \"#ff0000\"), krotkę (r, g, b) albo trzy składowe r, g, b. Zakres składowych\nzależy od colormode(): 0..1 lub 0..255.\n\nKolor pióra określa również kolor konturu wielokątnego kształtu żółwia.\n\nPrzykłady:\n>>> turtle.pencolor(\"red\")\n"
+    },
+    "pendown": {
+      "string": "Opuszcza pióro — żółw rysuje podczas ruchu.\n\nPrzykłady:\n>>> turtle.pendown()\n"
+    },
+    "pensize": {
+      "string": "Ustawia lub zwraca grubość pióra.\n\nwidth to liczba dodatnia. Bez argumentu zwraca bieżącą grubość. W trybie\nresizemode(\"auto\") rozmiar wielokątnego kształtu żółwia zależy od grubości\npióra.\n\nPrzykłady:\n>>> turtle.pensize(3)\n"
+    },
+    "penup": {
+      "string": "Podnosi pióro — żółw nie rysuje podczas ruchu.\n\nPrzykłady:\n>>> turtle.penup()\n"
+    },
+    "poly": {
+      "string": "Zapisuje wierzchołki wielokąta podczas wykonywania bloku with.\n\nMenedżer kontekstu wywołuje begin_poly() przy wejściu i end_poly() przy\nwyjściu. Pierwszy i ostatni wierzchołek są łączone. Wynik można pobrać przez\nget_poly().\n\nPrzykłady:\n>>> with turtle.poly():\n...     for _ in range(3):\n...         turtle.forward(50)\n...         turtle.left(120)\n>>> polygon = turtle.get_poly()\n"
+    },
+    "position": {
+      "string": "Zwraca bieżące położenie żółwia jako wektor Vec2D(x, y).\n\nPrzykłady:\n>>> position = turtle.position()\n"
+    },
+    "radians": {
+      "string": "Ustawia radiany jako jednostkę pomiaru kąta.\n\nPrzykłady:\n>>> turtle.radians()\n"
+    },
+    "reset": {
+      "string": "Usuwa rysunki żółwia i przywraca jego stan początkowy.\n\nPrzesuwa żółwia do środka ekranu oraz przywraca domyślne ustawienia. Nie usuwa\nrysunków innych żółwi.\n\nPrzykłady:\n>>> turtle.reset()\n"
+    },
+    "resizemode": {
+      "string": "Ustawia lub zwraca sposób zmiany rozmiaru kształtu żółwia.\n\nrmode może mieć wartość \"auto\" (rozmiar zależny od grubości pióra), \"user\"\n(rozmiar zgodny z shapesize()) lub \"noresize\" (bez zmiany rozmiaru). Bez\nargumentu zwraca bieżący tryb. Wywołanie shapesize() z argumentami ustawia tryb\n\"user\".\n\nPrzykłady:\n>>> turtle.resizemode(\"auto\")\n"
+    },
+    "right": {
+      "string": "Obraca żółwia w prawo o podany kąt.\n\nangle to liczba wyrażona w aktualnych jednostkach kąta, domyślnie w stopniach.\nJednostki można zmienić za pomocą degrees() lub radians().\n\nPrzykłady:\n>>> turtle.right(90)\n"
+    },
+    "setheading": {
+      "string": "Ustawia kierunek żółwia na podany kąt.\n\nto_angle to liczba w aktualnych jednostkach kąta. W trybie standard 0 oznacza\nwschód, a 90 północ; w trybie logo 0 oznacza północ, a 90 wschód (przy pomiarze\nw stopniach).\n\nPrzykłady:\n>>> turtle.setheading(90)\n"
+    },
+    "setundobuffer": {
+      "string": "Ustawia lub wyłącza bufor cofania czynności.\n\nsize to liczba całkowita określająca maksymalną liczbę zapamiętanych czynności.\nNone wyłącza bufor. Zmiana rozmiaru usuwa poprzednią historię.\n\nPrzykłady:\n>>> turtle.setundobuffer(1000)\n"
+    },
+    "setx": {
+      "string": "Ustawia współrzędną x żółwia, pozostawiając y bez zmian.\n\nx to liczba. Kierunek żółwia nie zmienia się. Jeśli pióro jest opuszczone, ruch\npozostawia linię.\n\nPrzykłady:\n>>> turtle.setx(20)\n"
+    },
+    "sety": {
+      "string": "Ustawia współrzędną y żółwia, pozostawiając x bez zmian.\n\ny to liczba. Kierunek żółwia nie zmienia się. Jeśli pióro jest opuszczone, ruch\npozostawia linię.\n\nPrzykłady:\n>>> turtle.sety(30)\n"
+    },
+    "shape": {
+      "string": "Ustawia lub zwraca nazwę kształtu żółwia.\n\nname musi być nazwą zarejestrowanego kształtu. Początkowo dostępne są: \"arrow\",\n\"turtle\", \"circle\", \"square\", \"triangle\", \"classic\" i \"blank\". Nowe kształty\nmożna rejestrować za pomocą register_shape(). Bez argumentu zwraca bieżącą\nnazwę.\n\nPrzykłady:\n>>> turtle.shape(\"turtle\")\n"
+    },
+    "shapesize": {
+      "string": "Ustawia lub zwraca współczynniki rozciągnięcia kształtu i grubość konturu.\n\nstretch_wid to rozciągnięcie prostopadle do kierunku żółwia, stretch_len —\nwzdłuż kierunku, a outline — grubość konturu. Współczynniki rozciągnięcia muszą\nbyć dodatnie.\n\nBez argumentów zwraca krotkę (stretch_wid, stretch_len, outline). Podanie\nargumentów włącza resizemode(\"user\"). Jeśli podano tylko stretch_wid, oba\nwspółczynniki rozciągnięcia otrzymują tę wartość.\n\nPrzykłady:\n>>> turtle.shapesize(2, 3, 1)\n"
+    },
+    "shapetransform": {
+      "string": "Ustawia lub zwraca macierz przekształcenia kształtu żółwia.\n\nElementy t11, t12 tworzą pierwszy wiersz macierzy, a t21, t22 drugi. Niepodane\nelementy zachowują dotychczasowe wartości. Wyznacznik t11 * t22 - t12 * t21 nie\nmoże być zerowy.\n\nBez argumentów zwraca cztery elementy macierzy jako krotkę. Zmiana macierzy\naktualizuje współczynniki rozciągnięcia, ścinania i kąt nachylenia.\n\nPrzykłady:\n>>> turtle.shapetransform(2, 0, 0, 1)\n"
+    },
+    "shearfactor": {
+      "string": "Ustawia lub zwraca współczynnik ścinania kształtu żółwia.\n\nshear to tangens kąta odchylenia linii równoległych do kierunku żółwia. Zmienia\nkształt, ale nie kierunek ruchu. Bez argumentu zwraca bieżący współczynnik.\n\nPrzykłady:\n>>> turtle.shearfactor(0.5)\n"
+    },
+    "showturtle": {
+      "string": "Sprawia, że żółw jest widoczny.\n\nPrzykłady:\n>>> turtle.showturtle()\n"
+    },
+    "speed": {
+      "string": "Ustawia lub zwraca prędkość animacji żółwia.\n\nBez argumentu zwraca bieżącą prędkość. Wartości od 1 do 10 oznaczają coraz\nszybszą animację, a 0 wyłącza animację ruchu i obrotu.\n\nMożna podać nazwę: \"fastest\" (0), \"fast\" (10), \"normal\" (6), \"slow\" (3) lub\n\"slowest\" (1). Liczby większe od 10 lub mniejsze od 0.5 są zamieniane na 0;\npozostałe są zaokrąglane.\n\nPrzykłady:\n>>> turtle.speed(\"normal\")\n>>> turtle.speed()\n6\n"
+    },
+    "stamp": {
+      "string": "Odbija kształt żółwia na ekranie i zwraca identyfikator stempla.\n\nStempel powstaje w bieżącym położeniu żółwia. Zwrócony identyfikator można\nprzekazać do clearstamp(), aby go usunąć.\n\nPrzykłady:\n>>> stamp_id = turtle.stamp()\n>>> turtle.clearstamp(stamp_id)\n"
+    },
+    "teleport": {
+      "string": "Przenosi żółwia do podanej pozycji bez rysowania linii.\n\nPodaj x i y jako liczby albo x jako parę współrzędnych. Kierunek żółwia nie\nzmienia się.\n\nJeśli trwa wypełnianie, dotychczasowy wielokąt zostaje wypełniony, a po\nprzeniesieniu rozpoczyna się nowy. Argument nazwany fill_gap=True zachowuje\nciągłość wypełnienia: odcinek przemieszczenia staje się częścią granicy\nwielokąta.\n\nPrzykłady:\n>>> turtle.teleport(100, 50)\n"
+    },
+    "tilt": {
+      "string": "Obraca kształt żółwia o podany kąt względem jego bieżącego nachylenia.\n\nangle jest wyrażony w aktualnych jednostkach kąta. Nie zmienia kierunku ruchu\nżółwia.\n\nPrzykłady:\n>>> turtle.tilt(30)\n"
+    },
+    "tiltangle": {
+      "string": "Ustawia lub zwraca kąt nachylenia kształtu żółwia.\n\nangle określa bezwzględny kąt pomiędzy orientacją kształtu a kierunkiem ruchu\nżółwia. Nie zmienia kierunku ruchu. Bez argumentu zwraca bieżący kąt w\naktualnych jednostkach.\n\nPrzykłady:\n>>> turtle.tiltangle(45)\n"
+    },
+    "towards": {
+      "string": "Zwraca kąt kierunku od żółwia do podanego punktu.\n\nPodaj dwie liczby x i y, parę współrzędnych, Vec2D albo innego żółwia. Wynik\nzależy od trybu standard/logo i aktualnych jednostek kąta. Nie zmienia\npołożenia ani kierunku żółwia.\n\nPrzykłady:\n>>> angle = turtle.towards(100, 100)\n"
+    },
+    "undo": {
+      "string": "Cofa ostatnią zapamiętaną czynność żółwia.\n\nKolejne wywołania cofają wcześniejsze czynności. Liczbę dostępnych operacji\nogranicza rozmiar bufora ustawiony przez setundobuffer().\n\nPrzykłady:\n>>> turtle.forward(50)\n>>> turtle.undo()\n"
+    },
+    "undobufferentries": {
+      "string": "Zwraca liczbę czynności zapisanych w buforze cofania.\n\nPrzykłady:\n>>> count = turtle.undobufferentries()\n"
+    },
+    "write": {
+      "string": "Wypisuje tekst w bieżącym położeniu żółwia.\n\narg jest zamieniany na tekst. align określa wyrównanie: \"left\", \"center\" albo\n\"right\". font to krotka (nazwa czcionki, rozmiar, styl), domyślnie (\"Arial\", 8,\n\"normal\").\n\nTekst ma bieżący kolor pióra. Jeśli move=True, pióro przesuwa się do prawego\ndolnego rogu tekstu. Domyślnie move=False.\n\nPrzykłady:\n>>> turtle.write(\"Cześć!\", align=\"center\", font=(\"Arial\", 16, \"normal\"))\n"
+    },
+    "xcor": {
+      "string": "Zwraca współrzędną x żółwia.\n\nPrzykłady:\n>>> x = turtle.xcor()\n"
+    },
+    "ycor": {
+      "string": "Zwraca współrzędną y żółwia.\n\nPrzykłady:\n>>> y = turtle.ycor()\n"
+    }
+  },
+  "_Screen": {
+    "bgcolor": {
+      "string": "Zwraca lub ustawia kolor tła ekranu.\n\nBez argumentów zwraca bieżący kolor. Podaj nazwę koloru, zapis szesnastkowy,\nkrotkę RGB albo trzy składowe RGB. Zakres składowych zależy od colormode().\n\nPrzykłady:\n>>> screen.bgcolor(\"lightblue\")\n"
+    },
+    "bgpic": {
+      "string": "Ustawia lub zwraca nazwę obrazu tła.\n\npicname to nazwa pliku obrazu. Wartość \"nopic\" usuwa obraz tła. Bez argumentu\nzwraca nazwę bieżącego obrazu. Obsługiwane są formaty PNG, GIF, PGM i PPM.\n\nPrzykłady:\n>>> screen.bgpic(\"nopic\")\n"
+    },
+    "bye": {
+      "string": "Zamyka okno grafiki żółwia.\n\nPrzykłady:\n>>> screen.bye()\n"
+    },
+    "clearscreen": {
+      "string": "Usuwa wszystkie rysunki i żółwie z ekranu.\n\nPrzywraca białe tło, usuwa obraz tła i powiązania zdarzeń oraz przywraca\ndomyślne ustawienia śledzenia animacji. Jest dostępna również jako metoda\nscreen.clear().\n\nPrzykłady:\n>>> screen.clearscreen()\n"
+    },
+    "colormode": {
+      "string": "Ustawia lub zwraca zakres składowych kolorów RGB.\n\ncmode musi wynosić 1.0 albo 255. Składowe RGB przekazywane do funkcji kolorów\nmuszą należeć odpowiednio do zakresu 0..1 lub 0..255. Bez argumentu zwraca\nbieżącą wartość.\n\nPrzykłady:\n>>> screen.colormode(255)\n"
+    },
+    "delay": {
+      "string": "Ustawia lub zwraca opóźnienie animacji w milisekundach.\n\ndelay to liczba nieujemna określająca przerwę między kolejnymi aktualizacjami\npłótna. Bez argumentu zwraca bieżące opóźnienie.\n\nPrzykłady:\n>>> screen.delay(10)\n"
+    },
+    "exitonclick": {
+      "string": "Zamyka okno grafiki żółwia po kliknięciu ekranu.\n\nPrzypisuje zamknięcie do kliknięcia i uruchamia pętlę zdarzeń. Przy ustawieniu\nusing_IDLE=True w turtle.cfg korzysta z pętli zdarzeń IDLE.\n\nPrzykłady:\n>>> screen.exitonclick()\n"
+    },
+    "getcanvas": {
+      "string": "Zwraca płótno Tkinter używane przez ekran żółwia.\n\nWynik pozwala korzystać bezpośrednio z metod płótna Tkinter.\n\nPrzykłady:\n>>> canvas = screen.getcanvas()\n"
+    },
+    "getshapes": {
+      "string": "Zwraca posortowaną listę nazw dostępnych kształtów żółwia.\n\nPrzykłady:\n>>> names = screen.getshapes()\n"
+    },
+    "listen": {
+      "string": "Ustawia fokus na ekranie żółwia, aby odbierać zdarzenia klawiatury.\n\nOpcjonalne argumenty xdummy i ydummy są ignorowane. Pozwalają użyć listen jako\nfunkcji obsługującej kliknięcie myszy.\n\nPrzykłady:\n>>> screen.listen()\n"
+    },
+    "mainloop": {
+      "string": "Uruchamia pętlę zdarzeń Tkinter.\n\nZwykle jest ostatnią instrukcją programu korzystającego z grafiki żółwia. Nie\nużywaj jej podczas interaktywnej pracy w IDLE uruchomionym z opcją -n, gdzie\npętla zdarzeń jest już aktywna. Funkcja modułu done() jest aliasem mainloop().\n\nPrzykłady:\n>>> screen.mainloop()\n"
+    },
+    "mode": {
+      "string": "Ustawia lub zwraca tryb pracy ekranu.\n\nmode może mieć wartość \"standard\", \"logo\" lub \"world\". W trybie standard żółw\nzaczyna zwrócony na wschód, a dodatnie kąty biegną przeciwnie do ruchu\nwskazówek zegara. W logo zaczyna zwrócony na północ, a dodatnie kąty biegną\nzgodnie z ruchem wskazówek zegara.\n\nTryb world korzysta ze współrzędnych użytkownika. Zmiana trybu resetuje żółwie.\nBez argumentu zwraca bieżący tryb.\n\nPrzykłady:\n>>> screen.mode(\"standard\")\n"
+    },
+    "no_animation": {
+      "string": "Tymczasowo wyłącza animację wewnątrz bloku with.\n\nPo wyjściu z bloku wyświetla rysunek i przywraca poprzednie ustawienie\nśledzenia animacji.\n\nPrzykłady:\n>>> with screen.no_animation():\n...     turtle.circle(100)\n"
+    },
+    "numinput": {
+      "string": "Wyświetla okno dialogowe i zwraca wpisaną liczbę.\n\ntitle to tytuł, prompt to opis, a default to wartość domyślna. Opcjonalne\nminval i maxval określają dolną i górną granicę. Niepoprawna wartość powoduje\nponowienie pytania. Anulowanie okna zwraca None.\n\nPrzykłady:\n>>> sides = screen.numinput(\"Wielokąt\", \"Liczba boków:\", 6, minval=3)\n"
+    },
+    "onkey": {
+      "string": "Przypisuje funkcję do zwolnienia podanego klawisza.\n\nfun to funkcja bez argumentów; None usuwa powiązanie. key to znak (np. \"a\") lub\nnazwa klawisza (np. \"space\"). Ekran musi mieć fokus — użyj listen().\n\nPrzykłady:\n>>> screen.onkey(turtle.undo, \"space\")\n>>> screen.listen()\n"
+    },
+    "onkeypress": {
+      "string": "Przypisuje funkcję do naciśnięcia klawisza.\n\nfun to funkcja bez argumentów; None usuwa powiązanie. key to znak lub nazwa\nklawisza. Jeśli key=None, funkcja obsługuje naciśnięcie dowolnego klawisza.\nEkran musi mieć fokus — użyj listen().\n\nPrzykłady:\n>>> screen.onkeypress(turtle.home, \"Home\")\n>>> screen.listen()\n"
+    },
+    "onscreenclick": {
+      "string": "Przypisuje funkcję do kliknięcia ekranu.\n\nfun przyjmuje współrzędne x i y kliknięcia. None usuwa powiązanie. btn to numer\nprzycisku myszy (domyślnie 1), a add=True dodaje powiązanie do istniejących\nzamiast je zastępować.\n\nDla obiektu ekranu metoda jest dostępna również pod nazwą onclick().\n\nPrzykłady:\n>>> screen.onscreenclick(turtle.goto)\n"
+    },
+    "ontimer": {
+      "string": "Wywołuje funkcję po upływie podanego czasu.\n\nfun to funkcja bez argumentów, a t to nieujemna liczba milisekund (domyślnie\n0). Wywołanie jest jednorazowe; funkcja może ponownie użyć ontimer(), aby\nzaplanować następne.\n\nPrzykłady:\n>>> screen.ontimer(turtle.home, 1000)\n"
+    },
+    "register_shape": {
+      "string": "Dodaje kształt żółwia do listy dostępnych kształtów.\n\nname może być nazwą pliku obrazu, jeśli shape=None. Można też podać osobną\nnazwę kształtu i nazwę pliku jako shape. Obsługiwane są formaty PNG, GIF, PGM i\nPPM. Kształty obrazkowe nie obracają się razem z kierunkiem żółwia.\n\nDla kształtu wielokątnego podaj nazwę i krotkę par współrzędnych. Dla kształtu\nzłożonego podaj nazwę i obiekt Shape. Zarejestrowanego kształtu można używać\nprzez shape(name).\n\nPrzykłady:\n>>> screen.register_shape(\"triangle_custom\", ((5, -3), (0, 5), (-5, -3)))\n"
+    },
+    "resetscreen": {
+      "string": "Przywraca stan początkowy wszystkich żółwi na ekranie.\n\nJest dostępna również jako metoda screen.reset().\n\nPrzykłady:\n>>> screen.resetscreen()\n"
+    },
+    "save": {
+      "string": "Zapisuje bieżący rysunek i żółwie w pliku PostScript.\n\nfilename to ścieżka pliku. Domyślnie istniejący plik powoduje FileExistsError.\nArgument nazwany overwrite=True pozwala go nadpisać.\n\nPrzykłady:\n>>> screen.save(\"rysunek.ps\")\n>>> screen.save(\"rysunek.ps\", overwrite=True)\n"
+    },
+    "screensize": {
+      "string": "Zmienia rozmiar płótna lub zwraca jego bieżące wymiary.\n\ncanvwidth i canvheight określają rozmiar płótna w pikselach, a bg jego kolor\ntła. Bez argumentów zwraca parę (szerokość, wysokość).\n\nNie zmienia rozmiaru okna. Do niewidocznych części większego płótna można\ndotrzeć za pomocą pasków przewijania.\n\nPrzykłady:\n>>> screen.screensize(2000, 1500)\n"
+    },
+    "setup": {
+      "string": "Ustawia rozmiar i położenie głównego okna.\n\nwidth i height jako liczby całkowite oznaczają piksele, a jako ułamki — część\nrozmiaru ekranu. Domyślnie okno zajmuje 50% szerokości i 75% wysokości ekranu.\n\nDodatnie startx i starty określają odległość od lewej i górnej krawędzi ekranu,\nujemne — od prawej i dolnej. None wyśrodkowuje okno w danej osi. Wartości\ndomyślne można zmienić w turtle.cfg.\n\nPrzykłady:\n>>> screen.setup(width=800, height=600, startx=None, starty=None)\n"
+    },
+    "setworldcoordinates": {
+      "string": "Ustawia współrzędne obszaru rysowania zdefiniowane przez użytkownika.\n\nllx, lly to współrzędne lewego dolnego rogu, a urx, ury — prawego górnego rogu.\nWłącza tryb \"world\"; jeśli ekran był w innym trybie, resetuje go. Jeśli tryb\n\"world\" jest już aktywny, przeskalowuje istniejący rysunek.\n\nRóżne skale osi x i y mogą powodować, że kąty będą wyglądały na zniekształcone.\n\nPrzykłady:\n>>> screen.setworldcoordinates(-10, -10, 10, 10)\n"
+    },
+    "textinput": {
+      "string": "Wyświetla okno dialogowe i zwraca wpisany tekst.\n\ntitle to tytuł okna, a prompt to opis oczekiwanej informacji. Anulowanie okna\nzwraca None.\n\nPrzykłady:\n>>> name = screen.textinput(\"Imię\", \"Jak masz na imię?\")\n"
+    },
+    "title": {
+      "string": "Ustawia tytuł okna grafiki żółwia.\n\ntitlestring to tekst wyświetlany na pasku tytułu.\n\nPrzykłady:\n>>> screen.title(\"Grafika żółwia\")\n"
+    },
+    "tracer": {
+      "string": "Ustawia lub zwraca częstość aktualizacji animacji.\n\nDla dodatniego n aktualizacja odbywa się co n-tą zwykłą aktualizację ekranu.\nn=0 wyłącza automatyczne aktualizacje; użyj update(), aby wyświetlić rysunek.\nOpcjonalny delay ustawia opóźnienie w milisekundach. Bez argumentów zwraca\nbieżące n.\n\nPrzykłady:\n>>> screen.tracer(0)\n>>> screen.update()\n"
+    },
+    "turtles": {
+      "string": "Zwraca listę żółwi znajdujących się na ekranie.\n\nPrzykłady:\n>>> pens = screen.turtles()\n"
+    },
+    "update": {
+      "string": "Odświeża ekran.\n\nUżyj po rysowaniu z wyłączonymi automatycznymi aktualizacjami, np. po\ntracer(0).\n\nPrzykłady:\n>>> screen.update()\n"
+    },
+    "window_height": {
+      "string": "Zwraca wysokość okna żółwia w pikselach.\n\nPrzykłady:\n>>> height = screen.window_height()\n"
+    },
+    "window_width": {
+      "string": "Zwraca szerokość okna żółwia w pikselach.\n\nPrzykłady:\n>>> width = screen.window_width()\n"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+name: Generate English template
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/generate-template.yml
+      - scripts/generate_template.py
+      - tests/test_generate_template.py
+      - translations/pl/docstrings.json
+  pull_request:
+    paths:
+      - .github/workflows/generate-template.yml
+      - scripts/generate_template.py
+      - tests/test_generate_template.py
+      - translations/pl/docstrings.json
+  schedule:
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+    inputs:
+      python-version:
+        description: CPython version used as the source of English docstrings
+        default: '3.14'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate Transifex Structured JSON
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ inputs.python-version || '3.14' }}
+          allow-prereleases: true
+          check-latest: true
+      - name: Test template generation
+        run: python -m unittest discover -s tests -p test_generate_template.py -v
+      - name: Generate English template
+        run: python -I scripts/generate_template.py dist/en/docstrings.json
+      - name: Upload English template
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: turtle-docstrings-en
+          path: dist/en/docstrings.json
+          if-no-files-found: error
