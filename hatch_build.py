@@ -1,4 +1,4 @@
-"""Compile structured translation catalogues into standalone turtle modules."""
+"""Compile KEYVALUEJSON translation catalogues into standalone turtle modules."""
 
 import json
 import re
@@ -22,7 +22,7 @@ def read_json(path):
 
 
 def load_catalog(path):
-    """Read a Transifex STRUCTURED_JSON resource into a docsdict mapping."""
+    """Read a nested KEYVALUEJSON resource."""
     groups = read_json(path)
     language = path.parent.name
     if not re.fullmatch(r"[a-z]{2,3}(?:_[a-z0-9]+)*", language):
@@ -41,28 +41,12 @@ def load_catalog(path):
             if not re.fullmatch(r"[a-z][a-z0-9_]*", method):
                 raise ValueError(f"{path}: invalid method name {method!r}")
             key = f"{cls}.{method}"
-            if not isinstance(entry, dict) or "string" not in entry:
-                raise ValueError(f"{path}: {key} needs a Structured JSON string entry")
-            if set(entry) - {
-                "string",
-                "context",
-                "developer_comment",
-                "character_limit",
-            }:
-                raise ValueError(f"{path}: unknown Structured JSON fields in {key}")
-            for name in ("string", "context", "developer_comment"):
-                if name in entry and not isinstance(entry[name], str):
-                    raise ValueError(f"{path}: {key}.{name} must be a string")
-            if "character_limit" in entry:
-                limit = entry["character_limit"]
-                if type(limit) is not int or limit < 0:
-                    raise ValueError(
-                        f"{path}: {key}.character_limit must be a nonnegative integer"
-                    )
+            if not isinstance(entry, str):
+                raise ValueError(f"{path}: {key} must be a translation string")
             # Transifex's "Download file to translate" leaves untranslated strings empty.
             # Skip them so turtle keeps its English help, including for aliases.
-            if entry["string"].strip():
-                docsdict[key] = entry["string"]
+            if entry.strip():
+                docsdict[key] = entry
 
     return language, dict(sorted(docsdict.items()))
 

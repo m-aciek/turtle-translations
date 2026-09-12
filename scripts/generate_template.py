@@ -1,4 +1,4 @@
-"""Generate the English Transifex resource from this interpreter's turtle module."""
+"""Generate the English KEYVALUEJSON resource from turtle."""
 
 import argparse
 import inspect
@@ -33,7 +33,7 @@ def generate_catalog():
             doc = inspect.getdoc(method)
             if not doc:
                 raise ValueError(f"Missing docstring for {cls}.{name}")
-            entries[name] = {"string": doc + "\n"}
+            entries[name] = doc + "\n"
         catalog[cls] = dict(sorted(entries.items()))
     return catalog
 
